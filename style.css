@@ -4,52 +4,80 @@ body {
     padding: 0;
     color: #333;
     background-color: #f4f4f4;
+    overflow-x: hidden; /* Previne rolagem horizontal */
 }
 
 header {
     background-color: #333;
     color: #fff;
     padding: 15px 0;
+    position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    text-align: center;
-    margin: 0;
-    font-size: 2em;
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.menu-toggle {
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    background-color: #444;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente escondido */
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+}
+
+nav.open {
+    left: 0; /* Mostra a barra de navegação */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    gap: 20px;
 }
 
 nav ul li {
-    position: relative;
+    margin-bottom: 20px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
+    font-size: 1.2em;
     display: block;
+    transition: background-color 0.3s, padding-left 0.3s;
+    padding: 10px;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     background-color: #555;
-    transform: scale(1.05);
+    padding-left: 20px;
+}
+
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 main {
@@ -60,6 +88,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
+    margin-top: 60px; /* Espaço para a barra de navegação */
 }
 
 h2 {
@@ -119,20 +148,20 @@ form button:hover {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    nav ul {
+    .header-container {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
-    nav ul li {
-        margin-bottom: 10px;
+    .menu-toggle {
+        display: block;
     }
 
-    nav ul li a {
-        padding: 10px;
+    nav {
+        width: 100%;
+    }
+
+    main {
+        margin-top: 0;
     }
 }
