@@ -8,8 +8,12 @@
 </head>
 <body>
     <header>
-        <h1>Anime Blog</h1>
+        <div class="header-container">
+            <div class="menu-toggle">&#9776;</div>
+            <h1>Anime Blog</h1>
+        </div>
         <nav>
+            <span class="close-menu">&times;</span>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -23,17 +27,21 @@
     <main>
         <section>
             <h2>Política de Privacidade</h2>
-            <p>Informações sobre como coletamos e usamos seus dados.</p>
-            <h3>1. Informações Coletadas</h3>
-            <p>Coletamos informações pessoais identificáveis que você nos fornece ao usar nosso site, como nome e e-mail...</p>
-            <h3>2. Uso das Informações</h3>
-            <p>As informações coletadas são usadas para melhorar nossos serviços e personalizar sua experiência...</p>
-            <!-- Adicione mais seções conforme necessário -->
+            <p>Aqui você pode incluir as informações sobre como os dados dos usuários são coletados e utilizados.</p>
+            <!-- Adicione o conteúdo da política de privacidade aqui -->
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Anime Blog. Todos os direitos reservados.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('open');
+        });
+
+        document.querySelector('.close-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.remove('open');
+        });
+    </script>
 </body>
 </html>
