@@ -8,8 +8,12 @@
 </head>
 <body>
     <header>
-        <h1>Anime Blog</h1>
+        <div class="header-container">
+            <div class="menu-toggle">&#9776;</div>
+            <h1>Anime Blog</h1>
+        </div>
         <nav>
+            <span class="close-menu">&times;</span>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -23,12 +27,21 @@
     <main>
         <section>
             <h2>Sobre Nós</h2>
-            <p>Saiba mais sobre a nossa missão e o que nos motiva a criar conteúdo sobre animes.</p>
+            <p>Conheça mais sobre o Anime Blog, nossa missão e equipe.</p>
+            <!-- Adicione o conteúdo da página aqui -->
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Anime Blog. Todos os direitos reservados.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('open');
+        });
+
+        document.querySelector('.close-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.remove('open');
+        });
+    </script>
 </body>
 </html>
