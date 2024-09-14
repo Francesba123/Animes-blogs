@@ -143,3 +143,25 @@ footer {
         padding: 10px;
     }
 }
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header, main, footer {
+    animation: fadeIn 0.8s ease-in;
+}
+
+form input, form textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
